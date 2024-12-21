@@ -61,11 +61,4 @@ DSA is critical in:
 
 ---
 
-### Where to Start?  
-Learn step-by-step:  
-- Start with basic data structures and their algorithms.  
-- Progress to more complex concepts.  
-- Familiarity with programming languages like JavaScript, Python, or C is recommended.  
-
-**Next**: Explore two algorithms that calculate Fibonacci numbers using primitive data structures.  
 
