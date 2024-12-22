@@ -1,15 +1,15 @@
-### Introduction to Data Structures and Algorithms  
+### Introduction to Data Structures and Algorithms
 
-**Data Structures** define how data is stored, while **Algorithms** describe the steps to solve problems using these structures. Together, they form the foundation for efficient problem-solving in computer science.  
+**Data Structures** define how data is stored, while **Algorithms** describe the steps to solve problems using these structures. Together, they form the foundation for efficient problem-solving in computer science.
 
 ---
 
-### What are Data Structures?  
-A **Data Structure** organizes and stores data effectively, tailored to specific tasks.  
+### What are Data Structures?
+A **Data Structure** organizes and stores data effectively, tailored to specific tasks.
 
-Example: A **family tree** visually represents relationships, making it easy to trace connections across generations.  
+Example: A **family tree** visually represents relationships, making it easy to trace connections across generations.
 
-#### Types of Data Structures:  
+#### Types of Data Structures:
 1. **Primitive Data Structures**: Basic types like integers, floats, characters, and booleans.  
 2. **Abstract Data Structures**: Built on primitive types, offering more complex operations, e.g., arrays, stacks, queues, trees, and graphs.  
 
@@ -17,37 +17,37 @@ Efficient data structures enable the management of vast amounts of data, such as
 
 ---
 
-### What are Algorithms?  
-An **Algorithm** is a step-by-step method to solve a problem or achieve a goal.  
+### What are Algorithms?
+An **Algorithm** is a step-by-step method to solve a problem or achieve a goal.
 
-Example: A recipe for cooking is an algorithm with instructions and ingredients (data structures).  
+Example: A recipe for cooking is an algorithm with instructions and ingredients (data structures).
 
-#### Algorithm Applications:  
-- Finding the fastest GPS route.  
-- Search engines identifying relevant results.  
-- Sorting items (e.g., movies by rating).  
+#### Algorithm Applications:
+- Finding the fastest GPS route.
+- Search engines identifying relevant results.
+- Sorting items (e.g., movies by rating).
 
-Efficient algorithms improve performance and reduce resource usage.  
-
----
-
-### Data Structures + Algorithms  
-Data structures are the foundation; algorithms make them useful. Together, they:  
-- Enable efficient data storage, retrieval, and manipulation.  
-- Help solve complex problems systematically.  
-- Optimize program speed and memory usage.  
+Efficient algorithms improve performance and reduce resource usage.
 
 ---
 
-### Applications of DSA  
-DSA is critical in:  
-- Operating systems, databases, and search engines.  
-- Scheduling tasks (e.g., in computers or GPS systems).  
-- Machine learning, cryptography, and gaming.  
+### Data Structures + Algorithms
+Data structures are the foundation; algorithms make them useful. Together, they:
+- Enable efficient data storage, retrieval, and manipulation.
+- Help solve complex problems systematically.
+- Optimize program speed and memory usage.
 
 ---
 
-### Key Terms to Know:  
+### Applications of DSA
+DSA is critical in:
+- Operating systems, databases, and search engines.
+- Scheduling tasks (e.g., in computers or GPS systems).
+- Machine learning, cryptography, and gaming.
+
+---
+
+### Key Terms to Know:
 | **Term**              | **Description**                                                                 |
 |------------------------|---------------------------------------------------------------------------------|
 | **Algorithm**          | Step-by-step instructions to solve problems.                                   |
@@ -61,75 +61,74 @@ DSA is critical in:
 
 ---
 
-### Simple Algorithm
+### Arrays
+An **Array** is a data structure used to store multiple elements of the same type in a contiguous block of memory. Arrays are one of the most commonly used data structures due to their simplicity and efficiency.
+
+#### Key Characteristics:
+1. **Fixed Size**: The size of an array is defined at the time of creation.
+2. **Indexed Access**: Elements are accessed using their index, starting at 0 (zero-based indexing).
+3. **Efficient Retrieval**: Retrieval of elements is quick using their index.
+
+#### Example:
+In JavaScript, an array can be created like this:
+```javascript
+let myArray = [7, 12, 9, 4, 11];
+```
 
 ---
 
-### 1. **Using a For Loop**
-This method is efficient and easy to understand:
+### Algorithm: Find the Lowest Value in an Array
+
+#### Step-by-Step Explanation:
+1. Create a variable `minVal` and set it to the first element of the array.
+2. Loop through each element in the array.
+3. If the current element is smaller than `minVal`, update `minVal`.
+4. After the loop, `minVal` will contain the lowest value in the array.
+
+#### Pseudocode:
+```
+Variable 'minVal' = array[0]
+For each element in the array:
+    If current element < minVal:
+        minVal = current element
+```
+
+#### Implementation in JavaScript:
 ```javascript
-function fibonacciLoop(n) {
-  let prev2 = 0, prev1 = 1;
-  console.log(prev2);
-  console.log(prev1);
-  for (let i = 2; i < n; i++) {
-    let current = prev1 + prev2;
-    console.log(current);
-    prev2 = prev1;
-    prev1 = current;
+let myArray = [7, 12, 9, 4, 11];
+let minVal = myArray[0]; // Step 1
+
+for (let i = 0; i < myArray.length; i++) { // Step 2
+  if (myArray[i] < minVal) { // Step 3
+    minVal = myArray[i];
   }
 }
 
-fibonacciLoop(20); // Generates the first 20 Fibonacci numbers
+console.log('Lowest value:', minVal); // Step 4
 ```
 
 ---
 
-### 2. **Using Recursion**
-Recursion allows us to express the Fibonacci sequence elegantly but is less efficient:
+### Algorithm Efficiency
+#### Time Complexity:
+- The time complexity of this algorithm is **O(n)** because it iterates through each element of the array once.
+
+#### Space Complexity:
+- The space complexity is **O(1)** since it uses a constant amount of memory, regardless of the size of the array.
+
+---
+
+### Advanced Concepts:
+- **Dynamic Arrays**: Arrays that can grow or shrink in size (e.g., JavaScript arrays).
+- **Multidimensional Arrays**: Arrays containing arrays (e.g., matrices).
+
+Example of a multidimensional array:
 ```javascript
-let count = 0;
-function fibonacciRecursive(prev1, prev2, n) {
-  if (count < n - 2) {
-    let current = prev1 + prev2;
-    console.log(current);
-    count++;
-    fibonacciRecursive(current, prev1, n);
-  }
-}
-
-console.log(0);
-console.log(1);
-fibonacciRecursive(1, 0, 20); // Generates the first 20 Fibonacci numbers
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+console.log(matrix[1][2]); // Accesses the value 6
 ```
-
----
-
-### 3. **Finding the Nth Fibonacci Number (Recursion)**
-This uses a mathematical approach but becomes inefficient for large `n` due to repeated calculations:
-```javascript
-function nthFibonacci(n) {
-  if (n <= 1) return n;
-  return nthFibonacci(n - 1) + nthFibonacci(n - 2);
-}
-
-console.log(nthFibonacci(19)); // 20th Fibonacci number (0-based index)
-```
-
----
-
-### 4. **Optimized Nth Fibonacci (Memoization)**
-To make recursion efficient, we use memoization:
-```javascript
-function nthFibonacciMemoized(n, memo = {}) {
-  if (n in memo) return memo[n];
-  if (n <= 1) return n;
-  memo[n] = nthFibonacciMemoized(n - 1, memo) + nthFibonacciMemoized(n - 2, memo);
-  return memo[n];
-}
-
-console.log(nthFibonacciMemoized(19)); // 20th Fibonacci number
-```
-
----
 
