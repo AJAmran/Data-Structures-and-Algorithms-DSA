@@ -61,4 +61,75 @@ DSA is critical in:
 
 ---
 
+### Simple Algorithm
+
+---
+
+### 1. **Using a For Loop**
+This method is efficient and easy to understand:
+```javascript
+function fibonacciLoop(n) {
+  let prev2 = 0, prev1 = 1;
+  console.log(prev2);
+  console.log(prev1);
+  for (let i = 2; i < n; i++) {
+    let current = prev1 + prev2;
+    console.log(current);
+    prev2 = prev1;
+    prev1 = current;
+  }
+}
+
+fibonacciLoop(20); // Generates the first 20 Fibonacci numbers
+```
+
+---
+
+### 2. **Using Recursion**
+Recursion allows us to express the Fibonacci sequence elegantly but is less efficient:
+```javascript
+let count = 0;
+function fibonacciRecursive(prev1, prev2, n) {
+  if (count < n - 2) {
+    let current = prev1 + prev2;
+    console.log(current);
+    count++;
+    fibonacciRecursive(current, prev1, n);
+  }
+}
+
+console.log(0);
+console.log(1);
+fibonacciRecursive(1, 0, 20); // Generates the first 20 Fibonacci numbers
+```
+
+---
+
+### 3. **Finding the Nth Fibonacci Number (Recursion)**
+This uses a mathematical approach but becomes inefficient for large `n` due to repeated calculations:
+```javascript
+function nthFibonacci(n) {
+  if (n <= 1) return n;
+  return nthFibonacci(n - 1) + nthFibonacci(n - 2);
+}
+
+console.log(nthFibonacci(19)); // 20th Fibonacci number (0-based index)
+```
+
+---
+
+### 4. **Optimized Nth Fibonacci (Memoization)**
+To make recursion efficient, we use memoization:
+```javascript
+function nthFibonacciMemoized(n, memo = {}) {
+  if (n in memo) return memo[n];
+  if (n <= 1) return n;
+  memo[n] = nthFibonacciMemoized(n - 1, memo) + nthFibonacciMemoized(n - 2, memo);
+  return memo[n];
+}
+
+console.log(nthFibonacciMemoized(19)); // 20th Fibonacci number
+```
+
+---
 
